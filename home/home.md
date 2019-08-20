@@ -1,14 +1,13 @@
 ---
 layout: page
-title: Home
-permalink: /home/
+title: Start-Here
 ---
 
 ## What is 'CMake' ?
 After performing some googling, one would end up knowing that CMake is a *build system generator*.  The intent of this blog is not to teach the **Need for CMake**, but rather, share knowledge on how to get started *using CMake*.
 
 To find out the Introduction and why CMake is standing out as the widely-used build-system generator, refer to this 
-[introductory slides on CMake](https://bitbucket.org/pvslabs/learn-cmake/raw/c164f9bfe4e4a34d0ba9cc65138e0ec095c584ee/slide-deck/learn-cmake.pptx).  This slide-deck should help prepare lay the foundation for the battle that lies ahead.
+[introductory slides on CMake]({{site.url}}/slide-deck/learn-cmake.pptx).  This slide-deck should help prepare lay the foundation for the battle that lies ahead.
 
 
 ## What's in this Blog ?
@@ -21,7 +20,7 @@ But, I'd try put forth the concepts in a generic way as far as possible.
 Go ahead and try cloning the repository:
 
 ```
-$ git clone https://bitbucket.org/pvslabs/learn-cmake.git
+$ git clone https://github.com/VSPhaneendraPaluri/cmakeforneophytes.git
 ```
 
 The above slide-deck is also part of the documentation section within this repository
@@ -62,4 +61,4 @@ folder containing NuGet packages    | Some demo templates shall be using NuGet p
 
 ## Let's Dive into the Demo Codes !
 
-Click [[Demo-Examples]](https://bitbucket.org/pvslabs/learn-cmake/wiki/templates/Demo-Examples) to go to the demo page.
+Now, navigate to [Demo-Examples]({% post_url 2019-08-20-demo-examples %}) to go to the demo page.
