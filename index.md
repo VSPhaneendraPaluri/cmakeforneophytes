@@ -20,6 +20,6 @@ to present few introductory slides [here](/slide-deck/learn-cmake.pptx).  Then, 
 to start with the [Start-Here Page](/home/home).
 
 For readers who are already aware of CMake, and want to learn or just brush-up some basics related to CMake,
-one may start with the [Demo-Examples]({% post_url 2019-08-20-demo-examples %}).
+one may start with the [Demo-Examples]({{site.baseurl}}{% post_url 2019-08-20-demo-examples %}).
 
 Hope you enjoy learning CMake !  :)

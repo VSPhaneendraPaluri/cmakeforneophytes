@@ -61,4 +61,4 @@ folder containing NuGet packages    | Some demo templates shall be using NuGet p
 
 ## Let's Dive into the Demo Codes !
 
-Now, navigate to [Demo-Examples]({% post_url 2019-08-20-demo-examples %}) to go to the demo page.
+Now, navigate to [Demo-Examples]({{site.baseurl}}{% post_url 2019-08-20-demo-examples %}) to go to the demo page.
