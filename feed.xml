@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/cmakeforneophytes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/cmakeforneophytes/" rel="alternate" type="text/html" /><updated>2019-08-20T22:02:48+05:30</updated><id>http://localhost:4000/cmakeforneophytes/feed.xml</id><title type="html">CMake Template Projects</title><subtitle>This work is aimed to help the first-time users of CMake tool to get started fast. This project provides basic introductory documentation, CMake template project for often encountered use-case scenari, etcetera.</subtitle><entry><title type="html">Running Applications Based On Preprocessor Directives</title><link href="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html" rel="alternate" type="text/html" title="Running Applications Based On Preprocessor Directives" /><published>2019-08-20T19:53:00+05:30</published><updated>2019-08-20T19:53:00+05:30</updated><id>http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code</id><content type="html" xml:base="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html">&lt;h1 id=&quot;cmake-support-for-handling-pre-processors-derivatives&quot;&gt;CMake Support for Handling Pre-processors Derivatives&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/cmakeforneophytes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/cmakeforneophytes/" rel="alternate" type="text/html" /><updated>2019-08-21T09:26:29+05:30</updated><id>http://localhost:4000/cmakeforneophytes/feed.xml</id><title type="html">CMake Template Projects</title><subtitle>This work is aimed to help the first-time users of CMake tool to get started fast. This project provides basic introductory documentation, CMake template project for often encountered use-case scenari, etcetera.</subtitle><entry><title type="html">Running Applications Based On Preprocessor Directives</title><link href="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html" rel="alternate" type="text/html" title="Running Applications Based On Preprocessor Directives" /><published>2019-08-20T19:53:00+05:30</published><updated>2019-08-20T19:53:00+05:30</updated><id>http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code</id><content type="html" xml:base="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html">&lt;h1 id=&quot;cmake-support-for-handling-pre-processors-derivatives&quot;&gt;CMake Support for Handling Pre-processors Derivatives&lt;/h1&gt;
 
 &lt;p&gt;Sometimes, as developers, we have situations where in we have to develop source code such that certain sections of it are controllable by use of &lt;em&gt;pre-processor macros&lt;/em&gt;.&lt;/p&gt;
 
@@ -76,7 +76,7 @@ pvs_nuget_packages
 
 &lt;h2 id=&quot;application-source&quot;&gt;Application Source&lt;/h2&gt;
 
-&lt;p&gt;The demo template uses nuget sources as shown below&lt;/p&gt;
+&lt;p&gt;The demo template uses nuget sources as shown below.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Cpp&quot;&gt;#inclue &quot;systemc.h&quot;
 
@@ -97,7 +97,7 @@ int sc_main(int sc_argc, char * sc_argv[])
 
 &lt;p&gt;User is requested to install the NuGet CLI tool for this activity.  NuGet reads the list of packages to be downloaded and installed by reading &lt;code class=&quot;highlighter-rouge&quot;&gt;packages.config&lt;/code&gt; file.&lt;/p&gt;
 
-&lt;p&gt;The basic template for making entries into &lt;em&gt;packages.config&lt;/em&gt; is as shown below&lt;/p&gt;
+&lt;p&gt;The basic template for making entries into &lt;em&gt;packages.config&lt;/em&gt; is as shown below.&lt;/p&gt;
 
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;packages&amp;gt;&lt;/span&gt;
@@ -107,7 +107,7 @@ int sc_main(int sc_argc, char * sc_argv[])
 
 &lt;p&gt;With the default settings of the NuGet CLI that is installed, one could make use of &lt;code class=&quot;highlighter-rouge&quot;&gt;nuget-restore&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;nuget-install&lt;/code&gt; command with the above &lt;em&gt;packages.config&lt;/em&gt; as the input to download the packages from NuGet.org to the local disk.&lt;/p&gt;
 
-&lt;p&gt;CMake provides a command &lt;code class=&quot;highlighter-rouge&quot;&gt;find_program&lt;/code&gt; to query if the NuGet CLI is installed&lt;/p&gt;
+&lt;p&gt;CMake provides a command &lt;code class=&quot;highlighter-rouge&quot;&gt;find_program&lt;/code&gt; to query if the NuGet CLI is installed.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find_program(NUGET nuget)
 
@@ -116,7 +116,7 @@ if (NOT NUGET)
 endif()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;In order to accomplish this, first we have to make the demo CMakeLists.txt file to point to the directory &lt;em&gt;pvs_nuget_packages&lt;/em&gt; that would contain the installed packages.&lt;/p&gt;
+&lt;p&gt;In order to accomplish the objective of this template, first we have to make the demo CMakeLists.txt file to point to the directory &lt;em&gt;pvs_nuget_packages&lt;/em&gt; that would contain the installed packages.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set(
   PVS_NUGET_PACKAGES
@@ -643,7 +643,7 @@ CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
 &lt;h2 id=&quot;query-system-information&quot;&gt;Query System Information&lt;/h2&gt;
 &lt;p&gt;CMake has support for lots of in-built variables that provide the system information to the user.&lt;/p&gt;
 
-&lt;p&gt;Few of them have been demonstrated as a part of this &lt;a href=&quot;/cmake_for_cpp/00_system_information/CMakeLists.txt&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Few of them have been demonstrated as a part of this &lt;a href=&quot;/cmakeforneophytes/cmake_for_cpp/00_system_information/CMakeLists.txt&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;cmake-support-of-variables-describing-system-and-providing-information&quot;&gt;CMake Support of Variables describing System and providing Information&lt;/h2&gt;
 &lt;ul&gt;
