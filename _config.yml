@@ -22,6 +22,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/cmakeforneophytes" # the subpath of your site, e.g. /blog
 url: "https://vsphaneendrapaluri.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 repository-path: "https://github.com/VSPhaneendraPaluri"
+branch: "/tree/master"
 twitter_username: pvsphaneendra
 github_username:  vsphaneendrapaluri
 
