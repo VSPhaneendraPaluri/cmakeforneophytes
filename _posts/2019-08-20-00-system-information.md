@@ -56,7 +56,7 @@ CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
 ## Query System Information
 CMake has support for lots of in-built variables that provide the system information to the user.
 
-Few of them have been demonstrated as a part of this [demo]({{site.baseurl}}/cmake_for_cpp/00_system_information/CMakeLists.txt).
+Few of them have been demonstrated as a part of this [demo](/cmake_for_cpp/00_system_information/CMakeLists.txt).
 
 
 ## CMake Support of Variables describing System and providing Information
