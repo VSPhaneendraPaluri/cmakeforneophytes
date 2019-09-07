@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Running Applications Based On Preprocessor Directives | CMake Template Projects</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Running Applications Based On Preprocessor Directives" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CMake Support for Handling Pre-processors Derivatives" />
+<meta property="og:description" content="CMake Support for Handling Pre-processors Derivatives" />
+<link rel="canonical" href="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html" />
+<meta property="og:url" content="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html" />
+<meta property="og:site_name" content="CMake Template Projects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-20T19:53:00+05:30" />
+<script type="application/ld+json">
+{"headline":"Running Applications Based On Preprocessor Directives","dateModified":"2019-08-20T19:53:00+05:30","datePublished":"2019-08-20T19:53:00+05:30","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html"},"url":"http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html","description":"CMake Support for Handling Pre-processors Derivatives","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/cmakeforneophytes/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/cmakeforneophytes/feed.xml" title="CMake Template Projects" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/cmakeforneophytes/">CMake Template Projects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/cmakeforneophytes/home/home.html">Start-Here</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Running Applications Based On Preprocessor Directives</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-08-20T19:53:00+05:30" itemprop="datePublished">Aug 20, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="cmake-support-for-handling-pre-processors-derivatives">CMake Support for Handling Pre-processors Derivatives</h1>
+
+<p>Sometimes, as developers, we have situations where in we have to develop source code such that certain sections of it are controllable by use of <em>pre-processor macros</em>.</p>
+
+<p>Obviously these are compile time features that are supported by compilers and hence, having CMake address such issues too is quiet brilliant.</p>
+
+<h2 id="whats-the-new-cmake-command-">What’s the New CMake Command ?</h2>
+
+<p>One must make use of <code class="highlighter-rouge">target_compile_definitions</code> command while trying to pass on the compile-time directive flags to CMakeLists.txt file.  Note this command is different from the <code class="highlighter-rouge">target_compile_options</code> that we had encountered earlier.</p>
+
+<p>This command has very similar syntax to other ‘target_xxxxx_xxxxx’ commands.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>target_compile_defintions(
+  ${PROJECT_NAME}
+  PRIVATE
+  ${&lt;list_of_macro&gt;}
+)
+</code></pre></div></div>
+
+<p>As one could notice, this command too follows a similar syntax to other target_* commands.</p>
+
+<p>The use of keyword PRIVATE here in this command is to limit the macro visibility to the current project and build only.</p>
+
+<p><strong>NOTE:</strong>  Good to mention that the order of writing these command matters.  This command should be mentioned only after the rule for the target of the current project is mentioned.</p>
+
+<p>Rest all is very similar.</p>
+
+  </div><a class="u-url" href="/cmakeforneophytes/demo-example-template/2019/08/20/07-run-defines-specific-code.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/cmakeforneophytes/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CMake Template Projects</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CMake Template Projects</li><li><a class="u-email" href="mailto:pvs.myworks@gmail.com">pvs.myworks@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vsphaneendrapaluri"><svg class="svg-icon"><use xlink:href="/cmakeforneophytes/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vsphaneendrapaluri</span></a></li><li><a href="https://www.twitter.com/pvsphaneendra"><svg class="svg-icon"><use xlink:href="/cmakeforneophytes/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">pvsphaneendra</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This work is aimed to help the first-time users of CMake tool to get started fast. This project provides basic introductory documentation, CMake template project for often encountered use-case scenari, etcetera.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

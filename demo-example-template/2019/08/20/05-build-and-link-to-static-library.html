@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Building Static Library &amp; It’s Use | CMake Template Projects</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Building Static Library &amp; It’s Use" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Template Illustrating Creating a STATIC Library and It’s Usage" />
+<meta property="og:description" content="Template Illustrating Creating a STATIC Library and It’s Usage" />
+<link rel="canonical" href="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/05-build-and-link-to-static-library.html" />
+<meta property="og:url" content="http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/05-build-and-link-to-static-library.html" />
+<meta property="og:site_name" content="CMake Template Projects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-20T19:52:00+05:30" />
+<script type="application/ld+json">
+{"headline":"Building Static Library &amp; It’s Use","dateModified":"2019-08-20T19:52:00+05:30","datePublished":"2019-08-20T19:52:00+05:30","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/05-build-and-link-to-static-library.html"},"url":"http://localhost:4000/cmakeforneophytes/demo-example-template/2019/08/20/05-build-and-link-to-static-library.html","description":"Template Illustrating Creating a STATIC Library and It’s Usage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/cmakeforneophytes/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/cmakeforneophytes/feed.xml" title="CMake Template Projects" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/cmakeforneophytes/">CMake Template Projects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/cmakeforneophytes/home/home.html">Start-Here</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Building Static Library &amp; It&#39;s Use</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-08-20T19:52:00+05:30" itemprop="datePublished">Aug 20, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="template-illustrating-creating-a-static-library-and-its-usage">Template Illustrating Creating a STATIC Library and It’s Usage</h1>
+
+<p>Let’s revisit the earlier topic on how to build to a STATIC library and have another target (an executable) that requires linking to this static library in order to use the features provided by the library.</p>
+
+<h2 id="whats-in-the-example-">What’s in the example ?</h2>
+
+<p>This example is a small illustration that show-cases on how one can create static library(ies) and link them all together.  Finally, create an executable that uses them.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>song_characteristics  (TargetType :  STATIC Library)
+|..... CMakeLists.txt
+|
+songs  (TargetType : STATIC Library)
+|..... CMakeLists.txt
+|
+albums  (TargetType : Executable)
+|..... CMakeLists.txt
+</code></pre></div></div>
+
+<p>As shown above, the projects <code class="highlighter-rouge">song_characteristics</code> and <code class="highlighter-rouge">songs</code> are the two targets that are being built as <em>libraries</em>.  <code class="highlighter-rouge">album</code> is the project that is consuming these two libraries and creating an executable.</p>
+
+<h2 id="points-worth-mentioning">Points Worth Mentioning</h2>
+
+<ol>
+  <li><code class="highlighter-rouge">song_characteristics</code> project creates the library by name <em>SongCharacteristics</em> and also exposes the include files later to be consumed by the <code class="highlighter-rouge">song</code> project.  It is achieved with the two instructions mentioned below:</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_library(
+  ${PROJECT_NAME}
+  STATIC
+  ${&lt;list_of_sources&gt;}
+)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  PUBLIC
+  ${&lt;list_of_include_headers&gt;}
+}
+</code></pre></div></div>
+
+<p>As one can notice above, <em>add_library</em> creates a target (here, it’s the library) and the type of library that is built is <strong>STATIC</strong>.</p>
+
+<p>All the available options for library types are</p>
+
+<ol>
+  <li>STATIC : archives of different object-files</li>
+  <li>SHARED : dynamic library that is loaded at run-time</li>
+  <li>MODULE : plugins loaded dynamically using dlopen like functionality</li>
+</ol>
+
+<p><strong>NOTE:</strong>  STATIC library type sets the internal in-built CMake variable <code class="highlighter-rouge">BUILD_SHARED_TYPE</code> to <em>false</em> or <em>OFF</em></p>
+
+<p>Also, one could notice that by mentioning PUBLIC for <em>target_include_directories</em> command, the current target is trying to use the include headers files both for it’s build as well as later allowing other targets to consume these include headers.</p>
+
+<h2 id="listfile-for-creating-song-target-is-exactly-similar-to-song_characteristics-target-creation">Listfile for Creating <code class="highlighter-rouge">song</code> Target is Exactly Similar to <code class="highlighter-rouge">song_characteristics</code> Target Creation</h2>
+
+<p><em>Almost similar, but for introduction of one more new CMake command - ‘target_link_libraries’</em>.  Again, there is another command <code class="highlighter-rouge">link_libraries</code>, but let’s maintain it target specific.</p>
+
+<p>Yes, you read it right !!</p>
+
+<p>This new command <em>target_link_libraries</em> is required to allow linking against the previously created ‘song_characteristics’ target (library).</p>
+
+<p>Important CMake rules could be seen below</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_library(
+  ${PROJECT_NAME}
+  STATIC
+  ${&lt;list_of_sources&gt;}
+)
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  SongCharacteristics
+  ${&lt;any_other_set_of_libraries_that_are_needed&gt;}
+)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  PUBLIC
+  ${&lt;list_of_current_include_headers_to_be_consumed_by_other_targets&gt;}
+}
+</code></pre></div></div>
+
+<p>I hope that the difference in rules listed over here is pretty intuitive.</p>
+
+<p>Kindly note that the order of inclusion of these two commands, namely, <em>target_include_directories</em> and <em>target_link_libraries</em> should be placed after defining the current target library using <em>add_library</em></p>
+
+<h2 id="finally-create-the-executable-target">Finally!! Create the Executable Target</h2>
+
+<p>The final step would be to create a CMakeLists.txt that uses the include headers and libraries from the <code class="highlighter-rouge">Song</code> target project, and creates an <em>executable</em>.</p>
+
+<p>It is sufficient to list the include headers as PRIVATE since, it is only the current executable target that is going to consume the include headers of ‘album’ project.</p>
+
+<p>For further details on creating libraries types, refer to this <a href="https://cmake.org/cmake/help/v3.0/command/add_library.html">link</a></p>
+
+  </div><a class="u-url" href="/cmakeforneophytes/demo-example-template/2019/08/20/05-build-and-link-to-static-library.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/cmakeforneophytes/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CMake Template Projects</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CMake Template Projects</li><li><a class="u-email" href="mailto:pvs.myworks@gmail.com">pvs.myworks@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vsphaneendrapaluri"><svg class="svg-icon"><use xlink:href="/cmakeforneophytes/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vsphaneendrapaluri</span></a></li><li><a href="https://www.twitter.com/pvsphaneendra"><svg class="svg-icon"><use xlink:href="/cmakeforneophytes/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">pvsphaneendra</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This work is aimed to help the first-time users of CMake tool to get started fast. This project provides basic introductory documentation, CMake template project for often encountered use-case scenari, etcetera.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
