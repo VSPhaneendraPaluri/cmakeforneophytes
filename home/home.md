@@ -7,7 +7,7 @@ title: Start-Here
 After performing some googling, one would end up knowing that CMake is a *build system generator*.  The intent of this blog is not to teach the **Need for CMake**, but rather, share knowledge on how to get started *using CMake*.
 
 To find out the Introduction and why CMake is standing out as the widely-used build-system generator, refer to this 
-[introductory slides on CMake]({{site.url}}/slide-deck/learn-cmake.pptx).  This slide-deck should help prepare lay the foundation for the battle that lies ahead.
+[introductory slides on CMake]({{ site.repository-path }}/{{ site.baseurl }}/blob/{{ site.branch }}/slide-deck/learn-cmake.pptx?raw=true).  This slide-deck should help prepare lay the foundation for the battle that lies ahead.
 
 
 ## What's in this Blog ?
